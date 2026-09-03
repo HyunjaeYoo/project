@@ -91,7 +91,7 @@ def _simulate_one(
     air = air + 5.5 * hvac_fail  # 실내 온도 상승
 
     # --- 공정 온도: 공기온도 + 절삭열. 쿨런트가 process 쪽은 어느 정도 잡아줌 ---
-    power_w = torque * rpm * 2 * np.pi / 60.0  # [W]
+    power_w = torque * rpm * 2 * np.pi / 60.0  # [결과단위 W(와트)]
     proc = air + 8.5 + power_w / 1400.0 + 0.004 * wear
     proc = proc - 6.0 * hvac_fail  # 온도차(방열 여력)가 줄어듦
     proc = proc + rng.normal(0, 0.12, n_minutes)
